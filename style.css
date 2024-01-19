@@ -1,5 +1,4 @@
 @charset 'utf-8';
-
 :root {
     --color-hover: #87a1e9;
     --transition: 0.5s ease;
@@ -22,8 +21,8 @@ a {
     text-decoration: none;
 }
 
-body{
-  background-color: #eff4fc;
+body {
+    background-color: #eff4fc;
 }
 
 .sidebar-wrap {
@@ -51,15 +50,17 @@ body{
 }
 
 .nav-header .logo {
-    display: flex;
-    justify-content: center;
+    margin-left: 40px;
     width: 100%;
-    height: 80px;
+    height: 60px;
 }
 
-.nav-header .logo img{
+.nav-header .logo img {
     height: 100%;
     opacity: 0;
+}
+.sidebar-wrap.expand .nav-header .logo img {
+    opacity: 1;
 }
 
 .nav-header .btn-menu {
@@ -73,29 +74,29 @@ body{
     margin-right: 10px;
 }
 
-.sidebar-wrap.expand .nav-header .btn-menu{
+.sidebar-wrap.expand .nav-header .btn-menu {
     margin-right: 0;
 }
 
-.bx-search::before{
+.bx-search::before {
     color: #ddd;
 }
 
-.nav-links{
+.nav-links {
     height: 100%;
     margin-top: 20px;
 }
 
-.nav-links li{
+.nav-links li {
     position: relative;
     margin: 8px 0;
 }
 
-.nav-links li:first-child{
+.nav-links li:first-child {
     margin-bottom: 14px;
 }
 
-.nav-links i{
+.nav-links i {
     height: 50px;
     min-width: 45px;
     line-height: 50px;
@@ -104,10 +105,10 @@ body{
     text-align: center;
 }
 
-.nav-links input{
+.nav-links input {
     width: 50%;
     height: 40px;
-    background: aqua;
+    background: #87a1e9;
     border-radius: 12px;
     padding: 0;
     border: none;
@@ -116,16 +117,16 @@ body{
     color: #000;
 }
 
-.sidebar-wrap.expand .nav-links input{
+.sidebar-wrap.expand .nav-links input {
     width: 100%;
     padding: 0 20px 0 40px;
 }
 
-.sidebar-wrap.sidebar-wrap.expand .nav-links input::placeholder{
+.sidebar-wrap.sidebar-wrap.expand .nav-links input::placeholder {
     color: #00308a;
 }
 
-.nav-links li a{
+.nav-links li a {
     width: 100%;
     height: 100%;
     background: #00308a;
@@ -134,15 +135,15 @@ body{
     align-items: center;
 }
 
-.nav-links li:hover a{
+.nav-links li:hover a {
     background: var(--color-hover);
 }
 
-.nav-links li:hover i{
+.nav-links li:hover i {
     color: #fff;
 }
 
-.nav-links li a .title{
+.nav-links li a .title {
     display: none;
     font-size: 15px;
     color: #fff;
@@ -150,12 +151,12 @@ body{
     transition: var(--transition);
 }
 
-.sidebar-wrap.expand .nav-links li a .title{
+.sidebar-wrap.expand .nav-links li a .title {
     display: block;
     transition: var(--transition);
 }
 
-.nav-links li .tooltip{
+.nav-links li .tooltip {
     opacity: 0;
     position: absolute;
     left: calc(100% + 15px);
@@ -170,7 +171,7 @@ body{
     z-index: 3;
 }
 
-.nav-links li:hover .tooltip{
+.nav-links li:hover .tooltip {
     opacity: 1;
     top: 50%;
     transform: translateY(-50%);
@@ -178,11 +179,11 @@ body{
     transition: var(--transition);
 }
 
-.sidebar-wrap.expand .tooltip{
+.sidebar-wrap.expand .tooltip {
     display: none;
 }
 
-.nav-links .search-btn{
+.nav-links .search-btn {
     position: absolute;
     left: 0;
     top: 50%;
@@ -194,20 +195,81 @@ body{
     transition: var(--transition);
 }
 
-.sidebar-wrap.expand .nav-links .search-btn{
+.sidebar-wrap.expand .nav-links .search-btn {
     background: transparent;
     transition: var(--transition);
 }
 
-.sidebar-wrap.expand .nav-links li:hover .search-btn{
+.sidebar-wrap.expand .nav-links li:hover .search-btn {
     color: #000;
 }
 
-.nav-links .search-btn:hover{
+.nav-links .search-btn:hover {
     background: var(--color-hover);
 }
 
-.nav-links .search-btn:hover::before{
+.nav-links .search-btn:hover::before {
     color: #fff;
 }
 
+.theme-wrapper {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 60px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.theme-wrapper .theme-icon {
+    display: none;
+    font-size: 20px;
+    color: #000;
+    transition: var(--transition);
+}
+.sidebar-wrap.expand .theme-wrapper .theme-icon {
+    display: block;
+}
+.theme-wrapper p {
+    display: none;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.sidebar-wrap.expand .theme-wrapper p {
+    display: block;
+}
+
+.theme-wrapper .theme-btn {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: #e2e2e2;
+    border-radius: 30px;
+}
+.theme-wrapper .theme-btn .theme-ball {
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border-radius: 50%;
+}
+.sidebar-wrap.expand ~ .home {
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--transition);
+}
+.home p {
+    display: inline-block;
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+    margin: 20px;
+    white-space: nowrap;
+}
