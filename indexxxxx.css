@@ -1,0 +1,246 @@
+:root {
+    --color-hover: #9F4D4E;
+    --transition: 0.5s ease;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("img/1.jpg");
+    z-index: -1;
+}
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 78px;
+    height: 100%;
+    background: rgba(255,255,255,0.6);
+    padding: 8px 16px;
+    transition: var(--transition);
+    z-index: 99;
+}
+.sidebar.expand {
+    width: 250px;
+    transition: var(--transition);
+}
+.nav-header {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.nav-header .logo {
+    opacity: 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+    font-style: italic;
+    font-family: 'Tektur', sans-serif;
+    transition: var(--transition);
+}
+.sidebar.expand .nav-header .logo {
+    opacity: 1;
+    transition: var(--transition);
+}
+.nav-header .btn-menu {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: #000;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.sidebar.expand .nav-header .btn-menu {
+    margin-right: 0;
+}
+.bx-search:before {
+    color: #B95A5B;
+}
+.nav-links {
+    height: 100%;
+    margin-top: 20px;
+}
+.nav-links li {
+    position: relative;
+    margin: 8px 0;
+}
+.nav-links li:first-child {
+    margin-bottom: 14px;
+}
+.nav-links i {
+    height: 50px;
+    min-width: 45px;
+    line-height: 50px;
+    font-size: 23px;
+    color: #fff;
+    text-align: center;
+}
+.nav-links input {
+    width: 50%;
+    height: 40px;
+    background: pink;
+    border-radius: 12px;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+}
+.sidebar.expand .nav-links input {
+    width: 100%;
+    padding: 0 20px 0 40px;
+}
+.sidebar.expand .nav-links input::placeholder {
+    color: #B95A5B;
+}
+.nav-links li a {
+    width: 100%;
+    height: 100%;
+    background: #E19192;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+}
+.nav-links li:hover a {
+    background: var(--color-hover);
+}
+.nav-links li:hover i {
+    color: #fff;
+}
+.nav-links li a .title {
+    display: none;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+.sidebar.expand .nav-links li a .title {
+    display: block;
+    transition: var(--transition);
+}
+.nav-links li:hover a .title {
+    color: #fff;
+}
+.nav-links li .tooltip {
+    opacity: 0;
+    position: absolute;
+    left: calc(100% + 15px);
+    top: -20px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 6px 14px;
+    font-size: 15px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 3;
+    transition: 0s;
+}
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    top: 50%;
+    pointer-events: auto;
+    transform: translateY(-50%);
+    transition: var(--transition);
+}
+.sidebar.expand .tooltip {
+    display: none;
+}
+.nav-links .search-btn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background: pink;
+    border-radius: 12px;
+    transform: translateY(-25px);
+    font-size: 23px;
+    color: #000;
+    transition: var(--transition);
+}
+.sidebar.expand .nav-links .search-btn {
+    background: transparent;
+    transition: var(--transition);
+}
+.sidebar.expand .nav-links li:hover .search-btn {
+    color: #000;
+}
+.nav-links .search-btn:hover {
+    background: var(--color-hover);
+}
+.nav-links .search-btn:hover::before {
+    color: #fff;
+}
+.theme-wrapper {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 60px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.theme-wrapper .theme-icon {
+    display: none;
+    font-size: 20px;
+    color: #000;
+    transition: var(--transition);
+}
+.sidebar.expand .theme-wrapper .theme-icon {
+    display: block;
+}
+.theme-wrapper p {
+    display: none;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    transition: var(--transition);
+}
+.sidebar.expand .theme-wrapper p {
+    display: block;
+}
+.theme-wrapper .theme-btn {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: #e2e2e2;
+    border-radius: 30px;
+}
+.theme-wrapper .theme-btn .theme-ball {
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border-radius: 50%;
+}
+.sidebar.expand ~ .home {
+    left: 250px;
+    width: calc(100% - 250px);
+    transition: var(--transition);
+}
+.home p {
+    display: inline-block;
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+    margin: 20px;
+    white-space: nowrap;
+}
+[출처] [html + CSS +JS]로 만든 Sidebar Navigation을 공유해드려요~^^ (하드코딩하는사람들) | 작성자 디자이너경준아빠
